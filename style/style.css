@@ -1,0 +1,11 @@
+body, html {
+	font-family:Tahoma, Geneva, sans-serif;
+    font-size:14px;
+    margin:0px;
+    padding:0px;
+	background-color: #d4d4d4;
+}
+main{
+	width: 1024px;
+	margin: 0 auto;
+}
