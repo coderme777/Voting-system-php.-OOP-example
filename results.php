@@ -8,7 +8,7 @@
     }
     $variant_id = htmlspecialchars($variant_id);
     $my = new Model();
-    $res = $my->addVoise($variant_id);
+    $res = $my->addVoise($variant_id); //добавляем голос в БД
     $poll = $my->getPollOnVariantId($variant_id);//ищем опрос по варианту ответа
     if ($poll) {//если по варианту ответа опрос найден, то получаем все варианты ответов
         $variants = $my->getVariants($poll['id']);
@@ -21,7 +21,7 @@
         $summ_data = [];//собираем нужные данные
         foreach($variants as $v) {
             $summ_data[$v['id']] = $v;
-            $summ_data[$v['id']]['voises'] = 0;
+            $summ_data[$v['id']]['voises'] = 0; //добавляем в массив еще одно поле с голосами
         }
         $variants = $summ_data;
         foreach ($voises as $v) $variants[$v['variant_id']]['voises']++;//подсчитываем голоса, variant_id берем уже из таблицы voises
